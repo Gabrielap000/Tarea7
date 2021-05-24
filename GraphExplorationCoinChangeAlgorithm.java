@@ -9,11 +9,48 @@ import java.util.Queue;
  * Graph exploration algorithm for the coin change problem
  * @author Jorge Duitama
  */
-public class GraphExplorationCoinChangeAlgorithm implements CoinChangeAlgorithm {
+// Dado un conjunto de n cadenas, encontrar la cadena más corta tal que cada una de las cadenas
+// de entrada sea una subcadena de la cadena de salida
+public class GraphExplorationCoinChangeAlgorithm implements CoinChangeAlgorithm 
+{
 
 	//Input data
 	private int totalValue;
 	private int [] denominations;
+	
+	
+	private String solution(String[] cadenas) {
+		
+	String solucion = "";
+	int max = Integer.MAX_VALUE;
+	String temp = "";
+	for (int i=0; i<cadenas.length; i++)
+	{
+		int cont = 0;
+		if(cadenas[i].length() < max)
+		{
+			max = cadenas[i].length();
+			temp =cadenas[i];
+			for (int j=0; i<cadenas.length; i++)
+			{
+				if (cadenas[i].equals(temp))
+				{
+					
+				}
+				else if (cadenas[i].contains(temp))
+				{
+					cont ++;
+				}
+			}
+		}
+		else if(cont == cadenas.length -1)
+		{
+			solucion = temp;
+		}
+	}
+	return solucion;
+		
+	}
 	
 	@Override
 	public int[] calculateOptimalChange(int totalValue, int[] denominations) {
